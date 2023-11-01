@@ -1,0 +1,52 @@
+{
+  "name": "pose-babylon",
+  "version": "0.5.1",
+  "private": true,
+  "title": "Pose Tracking Demo",
+  "description": "Geenee pose tracking demo",
+  "dependencies": {
+    "@babylonjs/core": "^5.57.1",
+    "@babylonjs/loaders": "^5.57.1",
+    "@geenee/bodyrenderers-babylon": "^0.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "copy-webpack-plugin": "^11.0.0",
+    "copyfiles": "^2.4.1",
+    "css-loader": "^6.7.1",
+    "esbuild-loader": "^2.20.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "serve": "^14.1.2",
+    "typescript": "^5.2.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "scripts": {
+    "start": "webpack serve --mode=development",
+    "start:https": "webpack serve --mode=development --https",
+    "build": "webpack build --mode=production",
+    "serve": "serve -p 3000 -s build",
+    "postinstall": "npm run post:wasm",
+    "post:wasm": "copyfiles -f \"node_modules/@geenee/bodytracking/dist/*.wasm\" public/"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
